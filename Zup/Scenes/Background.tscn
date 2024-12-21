@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Bricks/Explo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Bricks/Mainy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 527, 10 )
+
+[node name="Background" type="ColorRect"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+color = Color( 0.0196078, 0.0509804, 0.188235, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 508, 591 )
+shape = SubResource( 1 )
+
+[node name="Explo" parent="." instance=ExtResource( 1 )]
+position = Vector2( 453, 530 )
+
+[node name="Explo2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 557, 533 )
+
+[node name="Mainy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 455, 452 )
+
+[node name="Mainy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 556, 444 )
