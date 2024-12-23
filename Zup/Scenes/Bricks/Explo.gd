@@ -11,6 +11,7 @@ func _ready():
 
 func _on_ExploRad_explode():
 	if not exploded:
+		$Sprite.play("explosion")
 		var colliding_bricks = $ExploRad.get_overlapping_bodies()
 		exploded = true
 		yield(manipulate_bricks(colliding_bricks), "completed")
