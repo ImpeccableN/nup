@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var impulse_force = 5000
+var impulse_force = 4000
 
 
 func add_explosion(block):
@@ -9,7 +9,13 @@ func add_explosion(block):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_max_contacts_reported(1)
 
 
 
+
+
+func _on_Mainy_body_entered(body):
+	if body.is_in_group("floor"):
+		print("landed")
+		print(get_global_transform().x)

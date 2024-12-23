@@ -13,9 +13,15 @@ func _on_ExploRad_explode():
 	if not exploded:
 		var colliding_bricks = $ExploRad.get_overlapping_bodies()
 		exploded = true
-		for brick in colliding_bricks:
+		yield(manipulate_bricks(colliding_bricks), "completed")
+		queue_free()
+
+
+func manipulate_bricks(bricks_array):
+	yield(get_tree().create_timer(0.1), "timeout")
+	for brick in bricks_array:
 			if brick.has_method("add_explosion"):
 				brick.add_explosion(get_node("."))
 			if brick.has_method("_on_ExploRad_explode"):
 				brick._on_ExploRad_explode()
-		queue_free()
+	yield(get_tree().create_timer(0.1), "timeout")
