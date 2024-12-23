@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shades.png-43c1214a89641425f43d7d816fc64620.stex"
+path="res://.import/nick_shades.png-a8df17ffbdcd7f0d552b5a0ac8f2492c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Img/shades.png"
-dest_files=[ "res://.import/shades.png-43c1214a89641425f43d7d816fc64620.stex" ]
+source_file="res://Assets/Img/nick_shades.png"
+dest_files=[ "res://.import/nick_shades.png-a8df17ffbdcd7f0d552b5a0ac8f2492c.stex" ]
 
 [params]
 
