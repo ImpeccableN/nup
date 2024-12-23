@@ -9,8 +9,8 @@
 extents = Vector2( 32, 32 )
 
 [node name="Lame-O" type="RigidBody2D"]
-collision_layer = 257
-collision_mask = 257
+collision_layer = 265
+collision_mask = 265
 mass = 9.0
 physics_material_override = SubResource( 2 )
 gravity_scale = 9.82
