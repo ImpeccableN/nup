@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Bricks/Explo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Bricks/Mainy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Background.gd" type="Script" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 527, 10 )
+[ext_resource path="res://Scenes/Bricks/Lame-O.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Target.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.623529, 0.0431373, 0.258824, 1 )
@@ -13,12 +12,24 @@ bg_color = Color( 0.623529, 0.0431373, 0.258824, 1 )
 [sub_resource type="Theme" id=3]
 Button/styles/normal = SubResource( 2 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 527, 10 )
+
 [node name="Background" type="ColorRect"]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 color = Color( 0.0196078, 0.0509804, 0.188235, 1 )
 script = ExtResource( 3 )
+
+[node name="RetryButton" type="Button" parent="."]
+margin_left = 15.0
+margin_top = 23.0
+margin_right = 95.0
+margin_bottom = 68.0
+theme = SubResource( 3 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+text = "Retry"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["floor"]]
 position = Vector2( 511, 601 )
@@ -33,17 +44,24 @@ position = Vector2( 453, 530 )
 position = Vector2( 557, 533 )
 
 [node name="Mainy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 556, 450 )
+position = Vector2( 563, 355 )
 contact_monitor = true
 
-[node name="RetryButton" type="Button" parent="."]
-margin_left = 15.0
-margin_top = 23.0
-margin_right = 95.0
-margin_bottom = 68.0
-theme = SubResource( 3 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-text = "Retry"
+[node name="Target" parent="." instance=ExtResource( 5 )]
+position = Vector2( 844, 278 )
+scale = Vector2( 3, 0.5 )
 
-[connection signal="body_entered" from="Mainy" to="Mainy" method="_on_Mainy_body_entered"]
+[node name="Lame-O" parent="." instance=ExtResource( 4 )]
+position = Vector2( 559, 451 )
+
+[node name="Lame-O2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 648, 352 )
+
+[node name="Lame-O3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 646, 537 )
+
+[node name="Lame-O4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 648, 452 )
+
 [connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="body_entered" from="Mainy" to="Mainy" method="_on_Mainy_body_entered"]
