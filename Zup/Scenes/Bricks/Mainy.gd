@@ -25,12 +25,10 @@ func _ready():
 func _physics_process(delta):
 	if current_state != STATE.FLYING:
 		if $FloorChecker.get_overlapping_bodies().empty():
-			print("empty")
 			$Sprite.set_texture(img_laughing)
 			current_state = STATE.FLYING
 	elif current_state == STATE.FLYING:
 		if not $FloorChecker.get_overlapping_bodies().empty():
-			print("not empty")
 			$Sprite.set_texture(img_default)
 			current_state = STATE.DEFAULT
 
