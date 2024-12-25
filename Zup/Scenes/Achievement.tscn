@@ -14,7 +14,6 @@ border_color = Color( 0, 0, 0, 1 )
 PopupDialog/styles/panel = SubResource( 1 )
 
 [node name="Achievement" type="PopupDialog"]
-visible = true
 margin_right = 225.0
 margin_bottom = 75.0
 theme = SubResource( 2 )
