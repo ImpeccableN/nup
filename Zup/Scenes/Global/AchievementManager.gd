@@ -1,15 +1,22 @@
-extends Node
+extends Node2D
 
 var current_achievement_array : Array
+
 const achievement_scene = preload("res://Scenes/Achievement.tscn")
 
+
+func _ready():
+	pass
+
+
 func initiate_achievement(text):
+	var lvl_node = get_parent().get_child(1)
 	var achiev_instance = achievement_scene.instance()
-	add_child(achiev_instance)
-	achiev_instance.connect("hide", self, "_on_achievement_hide", [achiev_instance])
+	lvl_node.add_child(achiev_instance)
+	achiev_instance.connect("hide_achievement", self, "_on_achievement_hide", [achiev_instance])
 	achiev_instance._set_position(calculate_position())
 	current_achievement_array.append(achiev_instance)
-	
+	achiev_instance.initiate(text)
 
 
 func calculate_position():

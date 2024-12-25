@@ -3,6 +3,7 @@ extends RigidBody2D
 var impulse_force = 4000
 var last_position
 var checking_floor = false
+var first_flight = false
 
 var current_state
 
@@ -19,18 +20,22 @@ func add_explosion(block):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_state = STATE.DEFAULT
+	current_state = STATE.FLYING
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if current_state != STATE.FLYING:
 		if $FloorChecker.get_overlapping_bodies().empty():
 			$Sprite.set_texture(img_laughing)
 			current_state = STATE.FLYING
+			if !first_flight:
+				AchievementManager.initiate_achievement("send the sucker flying")
+#				first_flight = true
 	elif current_state == STATE.FLYING:
 		if not $FloorChecker.get_overlapping_bodies().empty():
 			$Sprite.set_texture(img_default)
 			current_state = STATE.DEFAULT
+
 
 func check_for_target():
 	checking_floor = true

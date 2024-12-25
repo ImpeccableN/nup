@@ -2,12 +2,6 @@ extends RigidBody2D
 
 var exploded = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-
 
 func _on_ExploRad_explode():
 	if not exploded:
@@ -27,3 +21,4 @@ func manipulate_bricks(bricks_array):
 			if brick.has_method("_on_ExploRad_explode"):
 				brick._on_ExploRad_explode()
 	yield(get_tree().create_timer(0.1), "timeout")
+
