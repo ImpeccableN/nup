@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Achievement.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.223529, 0.482353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=2]
+PopupDialog/styles/panel = SubResource( 1 )
+
+[node name="Achievement" type="PopupDialog"]
+visible = true
+margin_right = 225.0
+margin_bottom = 75.0
+theme = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Headline" type="Label" parent="."]
+margin_left = 5.0
+margin_right = 225.0
+margin_bottom = 30.0
+text = "Achievement unlocked!"
+valign = 1
+uppercase = true
+
+[node name="AchTex" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 30.0
+margin_right = 225.0
+margin_bottom = 75.0
