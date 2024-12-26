@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Fonts/blackout_oldskull/BlackoutOldskull.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/WinMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 39
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+Label/fonts/font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+Button/fonts/font = SubResource( 3 )
+
+[node name="WinMenu" type="Panel" groups=["win_menu"]]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = 150.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 60.0
+margin_right = 100.0
+margin_bottom = 160.0
+theme = SubResource( 2 )
+text = "You did it!"
+align = 1
+valign = 1
+
+[node name="NextLvlButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 83.0
+theme = SubResource( 4 )
+text = "Next Level"
+
+[connection signal="pressed" from="NextLvlButton" to="." method="_on_NextLvlButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Background.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/RetryButton.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Bricks/Explo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Target.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/WinMenu.tscn" type="PackedScene" id=7]
 
 [node name="Level2" type="ColorRect"]
 margin_right = 1024.0
@@ -13,24 +14,30 @@ margin_bottom = 600.0
 mouse_filter = 2
 color = Color( 0.0196078, 0.0509804, 0.188235, 1 )
 script = ExtResource( 1 )
-level_name = "2"
+level_name = 2
 
 [node name="RetryButton" parent="." instance=ExtResource( 2 )]
-margin_left = 24.0
-margin_top = 25.0
-margin_right = 164.0
-margin_bottom = 104.0
-
-[node name="Mainy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, 482 )
-
-[node name="Explo" parent="." instance=ExtResource( 4 )]
-position = Vector2( 64, 552 )
+margin_left = 21.0
+margin_top = 24.0
+margin_right = 161.0
+margin_bottom = 103.0
 
 [node name="Ground" parent="." instance=ExtResource( 5 )]
-position = Vector2( 194, 601 )
-scale = Vector2( 0.4, 1 )
+
+[node name="Explo" parent="." instance=ExtResource( 4 )]
+position = Vector2( 453, 530 )
+
+[node name="Explo2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 526, 532 )
+
+[node name="Mainy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 503, 454 )
+contact_monitor = true
 
 [node name="Target" parent="." instance=ExtResource( 6 )]
-position = Vector2( 646, 599 )
-scale = Vector2( 2, 0.2 )
+position = Vector2( 143, 222 )
+scale = Vector2( 3, 0.5 )
+
+[node name="WinMenu" parent="." instance=ExtResource( 7 )]
+
+[connection signal="body_entered" from="Mainy" to="Mainy" method="_on_Mainy_body_entered"]

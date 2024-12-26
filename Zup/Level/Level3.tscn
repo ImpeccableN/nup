@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Background.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/RetryButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Bricks/Lame-O.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bricks/Explo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Bricks/Mainy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/WinMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Target.tscn" type="PackedScene" id=8]
+
+[node name="Level3" type="ColorRect"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+color = Color( 0.0196078, 0.0509804, 0.188235, 1 )
+script = ExtResource( 1 )
+level_name = 3
+
+[node name="RetryButton" parent="." instance=ExtResource( 2 )]
+margin_left = 25.0
+margin_top = 23.0
+margin_right = 165.0
+margin_bottom = 102.0
+
+[node name="Ground" parent="." instance=ExtResource( 3 )]
+position = Vector2( 825, 271 )
+scale = Vector2( 0.3, 1 )
+
+[node name="Lame-O" parent="." instance=ExtResource( 4 )]
+position = Vector2( 764, 223 )
+
+[node name="Lame-O2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 767, 147 )
+
+[node name="Lame-O3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 848, 141 )
+
+[node name="Mainy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 861, 218 )
+
+[node name="Explo" parent="." instance=ExtResource( 5 )]
+position = Vector2( 937, 149 )
+
+[node name="Explo2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 938, 222 )
+
+[node name="WinMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="Ground2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 159, 506 )
+scale = Vector2( 0.3, 1 )
+
+[node name="Lame-O4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 49, 457 )
+
+[node name="Lame-O5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 50, 379 )
+
+[node name="Lame-O6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 53, 302 )
+
+[node name="Explo3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 130, 454 )
+
+[node name="Target" parent="." instance=ExtResource( 8 )]
+position = Vector2( 722, 574 )
+scale = Vector2( 3, 0.2 )
