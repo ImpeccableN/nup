@@ -4,13 +4,14 @@ extends Label
 signal hide_achievement
 
 
-func initiate(text):
+func initiate(headtext, achtext):
 	raise()
-	$AchTex.text = text
-	print("popped up at position" + str(rect_position))
+	$Headline.text = headtext
+	$AchTex.text = achtext
 	$Timer.start()
 
 
 func _on_Timer_timeout():
 	emit_signal("hide_achievement")
 	queue_free()
+

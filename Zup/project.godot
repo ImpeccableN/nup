@@ -15,7 +15,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-AchievementManager="*res://Scenes/Global/AchievementManager.gd"
+AchievementManager="*res://Scenes/Global/AchievementManager.tscn"
 
 [gui]
 

@@ -29,7 +29,7 @@ func _physics_process(_delta):
 			$Sprite.set_texture(img_laughing)
 			current_state = STATE.FLYING
 			if !first_flight:
-				AchievementManager.initiate_achievement("send the sucker flying")
+				AchievementManager.initiate_achievement("ach2")
 #				first_flight = true
 	elif current_state == STATE.FLYING:
 		if not $FloorChecker.get_overlapping_bodies().empty():
