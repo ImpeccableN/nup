@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var impulse_force = 4000
+var impulse_force = 8000
 var last_position
 var checking_floor = false
 var first_flight = false
@@ -13,6 +13,8 @@ var img_shades = preload("res://Assets/Img/nick_shades.png")
 
 enum STATE {DEFAULT, FLYING, WINNING}
 
+signal lvl_win
+
 
 func add_explosion(block):
 	apply_central_impulse((transform.origin - block.transform.origin).normalized() * impulse_force)
@@ -21,6 +23,7 @@ func add_explosion(block):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_state = STATE.FLYING
+	last_position = position
 
 
 func _physics_process(_delta):
@@ -44,7 +47,7 @@ func check_for_target():
 		if body.is_in_group("target"):
 			$Sprite.set_texture(img_shades)
 			$Timer.stop()
-			print("you win")
+			emit_signal("lvl_win")
 #			implement win_func()
 
 

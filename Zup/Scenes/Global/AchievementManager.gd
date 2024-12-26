@@ -14,7 +14,7 @@ func _ready():
 func initiate_achievement(achvar):
 	if achievement_dic.achlist[achvar]["achieved"] == "false":
 		achievement_dic.achlist[achvar]["achieved"] = "true"
-		var lvl_node = get_parent().get_child(1)
+		var lvl_node = get_tree().get_nodes_in_group("level")[0]
 		var achiev_instance = achievement_scene.instance()
 		lvl_node.add_child(achiev_instance)
 		achiev_instance.connect("hide_achievement", self, "_on_achievement_hide", [achiev_instance])

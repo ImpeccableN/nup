@@ -5,17 +5,16 @@
 [ext_resource path="res://Scenes/Background.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Bricks/Lame-O.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/RetryButton.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 527, 10 )
-
-[node name="Background" type="ColorRect"]
+[node name="Level1" type="ColorRect"]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 color = Color( 0.0196078, 0.0509804, 0.188235, 1 )
 script = ExtResource( 3 )
+level_name = "1"
 
 [node name="RetryButton" parent="." instance=ExtResource( 7 )]
 margin_left = 21.0
@@ -23,13 +22,7 @@ margin_top = 24.0
 margin_right = 201.0
 margin_bottom = 120.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["floor"]]
-position = Vector2( 511, 601 )
-collision_layer = 9
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
+[node name="Ground" parent="." instance=ExtResource( 6 )]
 
 [node name="Explo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 453, 530 )
@@ -44,8 +37,6 @@ contact_monitor = true
 [node name="Target" parent="." instance=ExtResource( 5 )]
 position = Vector2( 844, 278 )
 scale = Vector2( 3, 0.5 )
-collision_layer = 9
-collision_mask = 9
 
 [node name="Lame-O" parent="." instance=ExtResource( 4 )]
 position = Vector2( 559, 451 )

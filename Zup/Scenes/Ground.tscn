@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 520, 10 )
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 1040, 20 )
+
+[node name="Ground" type="StaticBody2D" groups=["floor"]]
+position = Vector2( 511, 601 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+self_modulate = Color( 0.835294, 0.839216, 0.203922, 1 )
+position = Vector2( -3.05176e-05, -0.999991 )
+mesh = SubResource( 2 )
