@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var impulse_force = 8000
+export var impulse_force : int
 var last_position
 var checking_floor = false
 var first_flight = false

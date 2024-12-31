@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var impulse_force = 8000
+export var impulse_force : int
 
 
 func add_explosion(block):

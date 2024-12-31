@@ -2,6 +2,12 @@ extends RigidBody2D
 
 var exploded = false
 
+var sound_array = ["res://Assets/Sound/explosion_1.wav",
+"res://Assets/Sound/explosion_2.wav",
+"res://Assets/Sound/explosion_3.wav",
+"res://Assets/Sound/explosion_4.wav",
+"res://Assets/Sound/explosion_5.wav"]
+
 
 func _on_ExploRad_explode():
 	if not exploded:
@@ -25,11 +31,7 @@ func manipulate_bricks(bricks_array):
 	yield(get_tree().create_timer(0.1), "timeout")
 
 
-var sound_array = ["res://Assets/Sound/explosion_1.wav",
-"res://Assets/Sound/explosion_2.wav",
-"res://Assets/Sound/explosion_3.wav",
-"res://Assets/Sound/explosion_4.wav",
-"res://Assets/Sound/explosion_5.wav"]
+
 
 func play_rand_sound(player):
 	var sound_num = randi() % 5

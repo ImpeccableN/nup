@@ -6,24 +6,25 @@
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 33, 33 )
+extents = Vector2( 17, 17 )
 
 [node name="Mainy" type="RigidBody2D" groups=["nick"]]
 collision_layer = 257
 collision_mask = 257
-mass = 9.0
+mass = 18.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 9.82
 script = ExtResource( 2 )
-impulse_force = 8000
+impulse_force = 4000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="FloorChecker" type="Area2D" parent="."]

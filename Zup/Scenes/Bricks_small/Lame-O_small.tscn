@@ -11,14 +11,16 @@ extents = Vector2( 32, 32 )
 [node name="Lame-O" type="RigidBody2D"]
 collision_layer = 265
 collision_mask = 265
-mass = 9.0
+mass = 18.0
 physics_material_override = SubResource( 2 )
 gravity_scale = 9.82
 script = ExtResource( 2 )
-impulse_force = 8000
+impulse_force = 4000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
