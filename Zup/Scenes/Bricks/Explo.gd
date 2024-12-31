@@ -6,7 +6,9 @@ var exploded = false
 func _on_ExploRad_explode():
 	if not exploded:
 		$Sprite.play("explosion")
-		$AudioStreamPlayer.play_rand_sound()
+		var audio_player = AudioStreamPlayer.new()
+		get_parent().add_child(audio_player)
+		play_rand_sound(audio_player)
 		var colliding_bricks = $ExploRad.get_overlapping_bodies()
 		exploded = true
 		yield(manipulate_bricks(colliding_bricks), "completed")
@@ -22,3 +24,15 @@ func manipulate_bricks(bricks_array):
 				brick._on_ExploRad_explode()
 	yield(get_tree().create_timer(0.1), "timeout")
 
+
+var sound_array = ["res://Assets/Sound/explosion_1.wav",
+"res://Assets/Sound/explosion_2.wav",
+"res://Assets/Sound/explosion_3.wav",
+"res://Assets/Sound/explosion_4.wav",
+"res://Assets/Sound/explosion_5.wav"]
+
+func play_rand_sound(player):
+	var sound_num = randi() % 5
+	print(sound_num)
+	player.stream = load(sound_array[sound_num])
+	player.play()
